@@ -38,7 +38,18 @@ function App() {
           <div className='body-right'>
             <div id='goal'>
               <h4>Raised $441 of <div id='total'>$1000</div> </h4>
-              <div id = 'progress-bar'>100%</div>
+              <div id='progress-bar'>100%</div>
+            </div>
+
+            <div id='donation-stage'>
+              <form className='donation-form'>
+                <p className='label' htmlFor='name'>Name <br></br>
+                  <input type='text' placeholder='John Doe' id='input-name' /></p> <br></br>
+                <p className='label' htmlFor='comment'>Comment <br></br>
+                  <input type='text' placeholder='. . .' id='input-comment' /></p>
+                <br></br>
+                <button>Donate</button>
+              </form>
             </div>
 
           </div>
