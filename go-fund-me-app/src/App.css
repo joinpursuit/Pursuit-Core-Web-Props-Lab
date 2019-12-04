@@ -20,3 +20,18 @@
 .App-link {
   color: #09d3ac;
 } */
+
+li:first-child {
+  background-color: rgba(147, 224, 247, 0.507);
+  color: rgb(0, 0, 0);
+  font-weight: 900;
+}
+
+ul {
+  height: 65vh;
+  overflow: scroll;
+}
+
+.feed-box {
+  height: 60vh;
+}
