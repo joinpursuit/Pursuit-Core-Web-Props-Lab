@@ -1,0 +1,44 @@
+.App {
+  text-align: center;
+  padding: 50px
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.header {
+  background-color: #a9a9a968;
+  line-height: .005em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 12em;
+  color: black;
+}
+.Body{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 3em;
+}
+
+.recent-donations {
+  width: 270px;
+  border: 1px solid black;
+  text-align: left;
+  
+}
+
+.form {
+  border: 1px solid black;
+  width: 500px;
+  display: grid;
+}
+
+i{
+  font-size: 1.4em;
+  font-weight: lighter;
+  font-family: cursive;
+  
+}
