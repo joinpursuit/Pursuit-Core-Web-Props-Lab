@@ -23,7 +23,7 @@ class Form extends React.Component {
                 </div>
                 <div className="form-group">
                     <label>Amount to Donate</label>
-                    <input type="range" className="custom-range" id="amountInput" min="1" max={goal} onChange={handleInput}/>
+                    <input type="range" className="custom-range" id="amountInput" min="1" max={goal} value={sliderValue} onChange={handleInput}/>
                     <blockquote className="blockquote text-right">
                         <p className="h3 mb-0">$ {sliderValue}</p>
                         <button type="submit" className="btn btn-lg btn-success my-4">Donate</button>
