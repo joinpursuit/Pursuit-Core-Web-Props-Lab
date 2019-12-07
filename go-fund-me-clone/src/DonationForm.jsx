@@ -1,4 +1,5 @@
 import React from 'react';
+import DonationTrackerBar from './DonationTrackerBar.jsx';
 import './main.css';
 
 
@@ -41,6 +42,7 @@ class DonationForm extends React.Component{
 			<div className = 'red'>
 				<form className = 'mainForm' onSubmit={this.sendSubToParent}>
 					<h1 className='formHeader'>Raised ${this.props.current} of ${this.props.goal}</h1>
+					<DonationTrackerBar percentage={this.props.percentage} />
 					<b>Name </b>	
 					<input onChange={this.handleName} placeholder = 'John Doe' type='text'/>
 					<b>Caption</b>

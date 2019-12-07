@@ -12,7 +12,8 @@ class DonationBoard extends React.Component{
 			{name: 'John', amount: 30, caption: 'Here, take a break from work'},
 			{name: 'Michelle', amount: 20, 'caption': 'Lol'}],
 			goal: 1000,
-			current: 445
+			current: 441,
+
 
 		}
 
@@ -28,6 +29,13 @@ class DonationBoard extends React.Component{
 			current: this.state.current + parseInt(formSubmission.donationAmount)
 		});
 	}
+	calculatePercentage = () => {
+		let percentage = (this.state.current / this.state.goal) * 100;
+		if(percentage > 100){
+			percentage = 100;
+		} 
+		return percentage;
+	}
 
 	render(){
 		return(
@@ -36,7 +44,7 @@ class DonationBoard extends React.Component{
 	          <DonationsBar donations={this.state.donations} />
 	        </div>
 	        <div className ='largerChild'>
-	          <DonationForm goal={this.state.goal} current={this.state.current} handleFormSubmit={this.handleFormSubmit}  />
+	          <DonationForm goal={this.state.goal} current={this.state.current} handleFormSubmit={this.handleFormSubmit} percentage={this.calculatePercentage()} />
 	        </div>
       	</div>)
 	}

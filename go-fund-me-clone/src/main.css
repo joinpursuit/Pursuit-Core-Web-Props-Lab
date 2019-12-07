@@ -1,21 +1,22 @@
 .red {
-	background-color: red;
+	
 	height: 80%;
 	width: 95%;
 }
 
 .blue {
-	background-color: blue;
+	background-color: lightgrey;
 	height: 100%;
 	width: 95%;
 
 }
 
 .green {
-	background-color: grey;
+	background-color: lightgrey;
 	height: 100%;
 	display: flex;
-	flex-direction: column;
+	flex-direction: column; 
+
 }
 
 .child{
@@ -37,4 +38,22 @@
 	align-self: flex-end;
 	margin-right: 10px;
 	font-size: 30px;
+}
+
+.tracker {
+	height: 25px;
+	border: 1px solid black;
+}
+
+.percentage {
+	width: 44.10%;
+	background-color: green;
+	height: 100%;
+}
+
+.percName {
+	height: 100%;
+	margin: 0;
+	color: whitesmoke;
+	text-align: center;
 }
