@@ -1,0 +1,22 @@
+.progressBarGray {
+    border: 1px solid black;
+    height: 25%;
+    background-color: lightgrey;
+    margin: auto;
+}
+
+.progressBarGreen {
+    background-color: lime;
+    height: 100%
+}
+
+.progress {
+    width: 100%;
+    margin: 0;
+    border: 1px solid black;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    border: 10px solid black;
+}
+

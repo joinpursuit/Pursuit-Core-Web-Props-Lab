@@ -1,4 +1,5 @@
 import React from 'react';
+import "./MakeDonation.css";
 
 const Donations = (props) => {
         return(

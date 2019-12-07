@@ -15,13 +15,12 @@ class App extends React.Component {
       caption: "",
       amount: 5,
       donations: [],
-      progress: 0
+      progress: 0,
+      percentage: 0
     }
   }
 
   changeName = (event) =>{
-    console.log("event target", event.target.value)
-    console.log("name state", this.state.name)
     this.setState({
         name: event.target.value
     })
@@ -35,7 +34,7 @@ class App extends React.Component {
       this.setState({
           amount: event.target.value
       })
-      console.log(this.state.amount)
+      
   }
   addDonation = (event) => {
     event.preventDefault();
@@ -49,18 +48,26 @@ class App extends React.Component {
       donationsArr.push(i);
     }
     donationsArr.push(newDonation)
-    this.setState({
+
+
+     this.setState({
       donations: donationsArr,
-      progress: this.state.progress + Number(this.state.amount)
+      progress: this.state.progress + Number(this.state.amount),
     })
 
-    console.log(this.state.donations)
+    this.setState((prevState) => {
+       return {percentage: ((prevState.progress/5000)*100)}
+    })
+
+    console.log("percentage", this.state.percentage)
   }
 
 
 
+
   render() {
-    const {name, caption, amount, donations, progress} = this.state;
+    const {name, caption, amount, donations, progress, percentage} = this.state;
+   
 
     const individualDonations = donations.map((donation) => {
       return (
@@ -75,8 +82,12 @@ class App extends React.Component {
   
     return (
       <div className="App">
+        <div className="banner">
+          <h2>Please help me retire ASAP!</h2>
+        </div>
         <Progress 
         progress={progress}
+        percentage={percentage}
         />
         <Donations 
         name={name}
@@ -87,9 +98,12 @@ class App extends React.Component {
         changeAmount={this.changeAmount}
         addDonation={this.addDonation}
         />
-        <ul>
-          {individualDonations}
-        </ul>
+        <div className="donations">
+          <h2>Donations</h2>
+          <ul>
+            {individualDonations}
+          </ul>
+        </div>
       </div>
     );
   }
