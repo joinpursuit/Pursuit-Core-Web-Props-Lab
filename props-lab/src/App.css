@@ -143,6 +143,6 @@ h2{
     white-space: nowrap;
     background-color: #007bff;
     transition: width .6s ease;
-    width: 25%;
+    /* width: 2 5%; */
     background-color: #28a745!important;
 }

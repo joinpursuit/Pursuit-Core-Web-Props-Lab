@@ -7,17 +7,18 @@ class AllDonations extends React.Component {
         super()
         this.state = {
             donatedAmountNeeded: 5000,
-            totalDonated: 150,
-            customRange: 0,
-            progressPercentage:  3,
+            totalDonated: 0,
+
+            progressPercentage: 0,
             name: "",
             message: "",
-
+            donationAmount: 1,
+            width: "0%",
             donations: [
 
-                { name: "John", donationAmout: 50, message: "Let's all give to this great cause!" },
-                { name: "John", donationAmout: 50, message: "Let's all give to this great cause!" },
-                { name: "John", donationAmout: 50, message: "Let's all give to this great cause!" },
+                // { name: "John", donationAmount: 50, message: "Let's all give to this great cause!" },
+                // { name: "John", donationAmount: 50, message: "Let's all give to this great cause!" },
+                // { name: "John", donationAmount: 50, message: "Let's all give to this great cause!" },
             ]
         }
     }
@@ -27,56 +28,71 @@ class AllDonations extends React.Component {
     }
 
 
-    progress = (event) =>{
-        let newTotal = parseInt(this.state.totalDonated) + parseInt(this.state.customRange)
-        let percentage =  parseInt(this.state.totalDonated) % parseInt(newTotal)
-      
-        console.log("Change Was Made")
 
-        this.setState({
-            progressPercentage: percentage,
-            totalDonated: newTotal 
-
-        })
-    }
-    
     customRangeFunct = (event) => {
 
         this.setState({
-            customRange: event.target.value
+            donationAmount: event.target.value
+
         })
     }
 
-    nameInput = (event) =>{
+    nameInput = (event) => {
         this.setState({
             name: event.target.value
         })
     }
 
-   
 
-    messageInput = (event) =>{
+
+    messageInput = (event) => {
         this.setState({
             message: event.target.value
         })
     }
 
+
+
+    progress = (event) => {
+        let newTotal = parseInt(this.state.totalDonated) + parseInt(this.state.donationAmount)
+        let percentage = parseInt(newTotal) % parseInt(this.state.donatedAmountNeeded)
+        this.setState({
+            totalDonated: newTotal,
+            progressPercentage: percentage,
+            width: (percentage).toString() + "%"
+        })
+        let obj = {}
+        obj["name"] = this.state.name
+        obj["donationAmount"] = this.state.donationAmount
+        obj["message"] = this.state.message
+        this.state.donations.push(obj)
+        // console.log(this.state.width)
+    }
+
+    percentage = () => {
+        this.setState({
+            width: (this.state.percentage).toString() + "%"
+        })
+    }
+
     render() {
-        const { donations, customRange, totalDonated, name, message,donatedAmountNeeded, progressPercentage} = this.state
-   console.log(totalDonated)
-      console.log(progressPercentage)
+        const { donations, donationAmount, totalDonated, name, message, donatedAmountNeeded, progressPercentage, width } = this.state
+        console.log(width)
         const listDonations = donations.map((donation) => {
+
             return (
                 <SingleDonations
                     // key={donation.name}
                     name={donation.name}
-                    donationAmout={donation.donationAmout}
+                    donationAmount={donation.donationAmount}
                     message={donation.message}
                 />
+
             )
+
         })
         return (
-        
+
             <div className="App">
                 <div className="header">
                     <h1 className="headerDescription" id="goFundMe">Go Fund Me</h1>
@@ -89,42 +105,36 @@ class AllDonations extends React.Component {
                     </ul>
                 </div>
                 <div className="right-side">
-                    <h2> Raised {totalDonated} of ${donatedAmountNeeded} </h2>
+                    <h2> Raised ${totalDonated} of ${donatedAmountNeeded} </h2>
                     <form onSubmit={this.handleFormSubmit} id="form">
 
-                        <div className= "progress">
-                        <div className="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{progressPercentage}% </div>
+                        <div className="progress">
+                            <div className="progress-bar" role="progressbar"
+                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{width} </div>
                         </div>
-                        
-                       
-                       
-                       
                         <label htmlFor="nameInput">Name </label>
-
-
                         <input type="text" className="form-control" id="nameInput" placeholder="John Doe"
-                         value={name}
-                         onChange={this.nameInput}></input>
+                            value={name}
+                            onChange={this.nameInput}></input>
                         <label htmlFor="captionInput" >Caption </label>
                         <input type="text" className="form-control" id="captionInput" placeholder="..."
-                        value={message}
-                        onChange = {this.messageInput}
+                            value={message}
+                            onChange={this.messageInput}
                         ></input>
                         <div>
                             <label htmlFor="amountInput" >Amount to Donate </label>
                             <input type="range" className="custom-range" id="amountInput"
-                                min="5"
+                                min="1"
                                 max="1000"
-                                value={customRange}
+                                value={donationAmount}
                                 onChange={this.customRangeFunct}
                             ></input>
-                            <p id="customRangeP">${customRange}</p>
-                            <button onClick = {this.progress} id= "donateSubmit">Donate</button>
+                            <p id="customRangeP">${donationAmount}</p>
+                            <button onClick={this.progress} id="donateSubmit">Donate</button>
                         </div>
                     </form>
                 </div>
             </div>
-
         )
     }
 }
