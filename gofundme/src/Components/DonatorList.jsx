@@ -1,15 +1,13 @@
 import React from 'react';
 
 const DonatorList = (props) => {
-    const handleChange = () => {
-        // console.log(props.name)
-        let itemName = props.name;
-        props.handleNewDonation(itemName)
-    }
 
     return (
-        <li onChange={handleChange}>
-            {props.name} - {props.caption} - ${props.amountDonated}
+        <li className="media my-2">
+            <div className="media-body">
+                <h5 className="mt-0 mb-1">{props.name} donated ${props.amount}</h5>
+                {props.caption}
+            </div>
         </li>
     )
 }
