@@ -40,9 +40,12 @@ class App extends React.Component {
   handleNewDonation = () => {
     let donatedTotal = parseInt(this.state.donatedTotal);
     let donationAmount = parseInt(this.state.donationAmount);
+    let donationGoal = parseInt(this.state.donationGoal)
+    let updatedTotal = donationAmount + donatedTotal
 
     this.setState({
-      donatedTotal: donatedTotal + donationAmount,
+      donatedTotal: updatedTotal,
+      donatedTotalPercent: updatedTotal / donationGoal * 100
     })
   }
 
@@ -73,8 +76,8 @@ class App extends React.Component {
 
     console.log("form submitted")
     this.handleNewDonation();
-    console.log(this.state.donatedTotal)
-    this.handleTotalPercentage();
+    // console.log(this.state.donatedTotal)
+    // this.handleTotalPercentage();
 
     if (this.allFieldsValid()) {
       this.setState({
