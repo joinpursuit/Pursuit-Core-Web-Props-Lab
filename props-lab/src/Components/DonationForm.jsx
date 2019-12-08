@@ -3,7 +3,7 @@ import React from 'react';
 const DonationForm = (props) => {
   return (
     <div className='donation-form section'>
-      <form onSubmit={props.handleSubmit}>
+      <form onSubmit={props.handleFormSubmit}>
         <label htmlFor='name'>Name: </label>
         <input
           id='name'
