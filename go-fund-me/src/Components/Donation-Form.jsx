@@ -1,23 +1,29 @@
 import React from 'react';
 
 
-class Form extends React.Component {
+class DonationForm extends React.Component {
     render() {
         return (
             <form className="formy-mcformface" onSubmit={this.props.handleFormSubmit}>
+                <label htmlFor="name">NAME: </label>
                 <input
+                    id="name"
                     type="text"
                     placeholder="Enter your name!"
                     value={this.props.userName}
                     onChange={this.props.handleUserName}
                 />
+                <label htmlFor="comment">COMMENT: </label>
                 <input
+                    id="comment"
                     type="text"
                     placeholder="Say something nice to Doug!"
                     value={this.props.userCaption}
                     onChange={this.props.handleUserCaption}
                 />
+                <label htmlFor="amount">AMMOUNT: </label>
                 <input
+                    id="amount"
                     type="range"
                     className="donation-range"
                     min="5"
@@ -33,4 +39,4 @@ class Form extends React.Component {
     }
 }
 
-export default Form;
+export default DonationForm;

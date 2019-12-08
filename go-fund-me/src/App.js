@@ -1,57 +1,87 @@
 import React from 'react';
 import './App.css';
-import Form from './Components/form'
+import DonationForm from './Components/Donation-Form'
 import Donors from './Components/Donors'
+import TopBar from './Components/TopBar'
+import Progress from './Components/Progress'
+import RecentDonations from './Components/Recent-Donations'
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      donors: [
-        {
-          name: "Brisco County Jr",
-          caption: "I believe in you, buddy!",
-          donation: 100
-        },
-        {
-          name: "Scrooge McDuck",
-          caption: "Work smarter, not harder!",
-          donation: 5
-        },
-        {
-          name: "Lou Jitsu",
-          caption: "HOT SOUP!",
-          donation: 25
-        }
+      allDonations: [
+        // {
+        //   name: "Brisco County Jr",
+        //   caption: "I believe in you, buddy!",
+        //   amount: 100
+        // },
+        // {
+        //   name: "Scrooge McDuck",
+        //   caption: "Work smarter, not harder!",
+        //   amount: 5
+        // },
+        // {
+        //   name: "Lou Jitsu",
+        //   caption: "HOT SOUP!",
+        //   amount: 25
+        // }
       ],
-      donatedTotal: this.totalMath,
-      donatedTotalPercent: this.totalMath / 100,
-      donationLimit: 5000,
-      donationAmount: 0,
+      donatedTotal: 0,
+      donatedTotalPercent: 0,
+      donationGoal: 5000,
       userName: '',
-      userCaption: ''
+      donationAmount: 0,
+      userCaption: '',
+      submitted: false
     }
   }
 
-  totalMath = () => {
-    let allDonors = this.state.donors
-    let sum = 0
-    for (let person of allDonors) {
-      sum += person.donation
-    }
-    return sum
+  handleNewDonation = () => {
+    let donatedTotal = parseInt(this.state.donatedTotal);
+    let donationAmount = parseInt(this.state.donationAmount);
+
+    this.setState({
+      donatedTotal: donatedTotal + donationAmount,
+    })
+  }
+
+  handleTotalPercentage = () => {
+    let donatedTotal = parseInt(this.state.donatedTotal);
+    let donationGoal = parseInt(this.state.donationGoal);
+    this.setState({
+      donatedTotalPercent: donatedTotal / donationGoal * 100
+    })
   }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log("form submitted")
+    const { 
+      userCaption, 
+      userName, 
+      donationAmount, 
+      allDonations 
+    } = this.state;
 
-    // if (this.allFieldsValid()) {
-    //   this.handleCalculate();
-    //   this.setState({
-    //     submitted: true
-    //   })
-    // }
+    let allDonationsCopy = [...allDonations]
+
+    allDonationsCopy.push({
+      name: userName,
+      caption: userCaption,
+      amount: donationAmount
+    })
+
+    console.log("form submitted")
+    this.handleNewDonation();
+    console.log(this.state.donatedTotal)
+    this.handleTotalPercentage();
+
+    if (this.allFieldsValid()) {
+      this.setState({
+        allDonations: allDonationsCopy,
+        submitted: true
+      })
+    }
   }
 
   handleUserName = (event) => {
@@ -79,47 +109,45 @@ class App extends React.Component {
     return (
       this.state.userName &&
       this.state.userCaption &&
-      parseInt(this.state.donationAmount) !== 0 
+      this.state.donationAmount 
     )
   }
 
   render() {
     const {
-      donors,
+      allDonations,
       donatedTotal,
       donatedTotalPercent,
-      donationLimit,
+      donationGoal,
       donationAmount,
       userName,
       userCaption} = this.state;
-    
+
     return (
       <div className="App">
-        <div className="header">
-          <h1>Go Fund Doug</h1>
-          <p>Help me quit my job so I can have more time to learn how to code</p>
-        </div>
+        <TopBar />
         <div className="left-side">
-          <div className="donation-list">
-            <Donors />
-          </div>
+            <RecentDonations 
+              allDonations={allDonations}
+            />
         </div>
         <div className="right-side">
           <div className="donation-meter">
-            <h2>Raised $ {donatedTotal} of $ {donationLimit}</h2>
-            <div>
-              <div role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{donatedTotalPercent}%</div>
-            </div>
+            <Progress
+              donatedTotal={donatedTotal}
+              donationGoal={donationGoal}
+              donatedTotalPercent={donatedTotalPercent}
+            />
           </div>
           <div className="form-container">
-            <Form 
+            <DonationForm 
               handleFormSubmit={this.handleFormSubmit} 
               handleUserName={this.handleUserName}
-              userName={this.state.userName}
+              userName={userName}
               handleUserCaption={this.handleUserCaption}
-              userCaption={this.state.userCaption}
+              userCaption={userCaption}
               handleDonationAmount={this.handleDonationAmount}
-              donationAmount={this.state.donationAmount}
+              donationAmount={donationAmount}
             />
           </div>
         </div>

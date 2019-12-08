@@ -1,16 +1,12 @@
 import React from "react"
 
-class Donors extends React.Component {
-    render() {
-        return (
-            <ul>
-                <li>Stuff</li>
-                <li>And</li>
-                <li>Things</li>
-            </ul>
-        )
-    }
+const Donors = (props) => {
+    return(
+        <li>
+            <p>{props.name} handsomely donated ${props.amount}</p>
+            <p>{props.caption}</p>
+        </li>
+    )
 }
-
 
 export default Donors
