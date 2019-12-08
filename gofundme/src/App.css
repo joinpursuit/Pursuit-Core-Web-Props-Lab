@@ -1,0 +1,61 @@
+/* .App {
+  text-align: center;
+} */
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.avatar-size {
+    height: 50px;
+    width: 50px;
+  }
+
+
+
+  .App {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: (30%, 35%, 35%);
+  }
+
+  .top-bar {
+    grid-column: 1 / -1;
+    background-color: orange;
+
+  }
+  
+  .recent-donations {
+    background-color: red;
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;  
+  }
+
+  .progress-section {
+    background-color: skyblue;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;  
+  }
+
+  .donate-section {
+    background-color: greenyellow;
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;  
+  }
+  
