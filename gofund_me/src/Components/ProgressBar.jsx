@@ -1,8 +1,11 @@
 import React from 'react';
 
 const ProgressBar = (props) => {
-    // <div className='progress-bar'>
+  return (
+        <div className='progress-bar'>
+           <p>Raised ${props.currentAmount} of ${props.totalAmount}</p>
 
-    // </div>
+        </div>
+    )
 }
 export default ProgressBar;
