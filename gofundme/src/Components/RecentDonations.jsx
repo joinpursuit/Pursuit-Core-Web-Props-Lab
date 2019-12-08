@@ -10,7 +10,7 @@ const RecentDonations = (props) => {
             amount={donation.donationAmount} />)
     })
 
-    return (<ul className="col-4 list-unstyled recent-donations">
+    return (<ul className="col-4 list-unstyled text-center">
         <h3 className='my-4'>Recent Donations</h3>
         <ul>
             {donationsList}

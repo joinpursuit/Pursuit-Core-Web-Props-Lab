@@ -76,31 +76,33 @@ class App extends React.Component {
 
         <div className='top-bar'>
           <Welcome />
-          <div className='recent-donations'>
-            <Recent
-              donations={this.state.donations}
-            // name={name}
-            // caption={caption}
-            // donationAmount={donationAmount}
-            />
-            <div>
-              <Progress
-                raisedAmount={raisedAmount}
-                goalAmount={goalAmount} />
-              <DonationForm
-                handleName={this.handleName}
-                handleCaption={this.handleCaption}
-                handleSubmit={this.handleSubmit}
-                handleDonationAmount={this.handleDonationAmount}
-                name={name}
-                caption={caption}
-                donationAmount={donationAmount}
-              />
-            </div>
-          </div>
         </div>
 
+        <div className='recent-donations'>
+          <Recent
+            donations={this.state.donations}
+          // name={name}
+          // caption={caption}
+          // donationAmount={donationAmount}
+          />
+        </div>
 
+        <div className='progress-section'>
+          <Progress
+            raisedAmount={raisedAmount}
+            goalAmount={goalAmount} />
+        </div>
+        <div className='donate-section'>
+          <DonationForm
+            handleName={this.handleName}
+            handleCaption={this.handleCaption}
+            handleSubmit={this.handleSubmit}
+            handleDonationAmount={this.handleDonationAmount}
+            name={name}
+            caption={caption}
+            donationAmount={donationAmount}
+          />
+        </div>
       </div>
     )
   }
