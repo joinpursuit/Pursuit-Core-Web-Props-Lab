@@ -25,18 +25,16 @@
 }
 
 
-h5{
+/* h5{
   font-size: 1.25rem;
   margin-bottom: .25rem!important;
 }
 
-/* .recentDonation{
-   margin-bottom: 1.5rem!important;
-} */
+
 
 
 input{
-  /* display: block; */
+
     width: 100%;
     height: calc(2.25rem + 2px);
     padding: .375rem .75rem;
@@ -71,9 +69,7 @@ input{
 }
 
 .left-side{
-  /* margin-left: auto; */
-  /* padding-left: 0px; */
-  /* margin-top: 50px; */
+
   margin-bottom: 50px;
   margin-left: 150px;
   background-color: #eee;
@@ -99,7 +95,7 @@ input{
 .custom-range{
 
   height: calc(1rem + .4rem);
-  /* -webkit-appearance: initial; */
+
 }
 
 
@@ -143,6 +139,5 @@ h2{
     white-space: nowrap;
     background-color: #007bff;
     transition: width .6s ease;
-    /* width: 2 5%; */
     background-color: #28a745!important;
-}
+} */
