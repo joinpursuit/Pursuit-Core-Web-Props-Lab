@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DonationForm = (props) => {
+const Form = (props) => {
   return (
     <div className='donation-form section'>
       <form onSubmit={props.handleSubmit}>
@@ -40,4 +40,4 @@ const DonationForm = (props) => {
   )
 }
 
-export default DonationForm;
+export default Form;

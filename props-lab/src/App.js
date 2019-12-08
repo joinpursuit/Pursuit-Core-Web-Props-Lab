@@ -35,7 +35,6 @@ class App extends React.Component {
     })
     console.log(newDonationsCopy)
 
-    // debugger;
     this.setState({
       donations: newDonationsCopy,
       raisedAmount: raisedAmount + parseInt(donationAmount),
@@ -69,6 +68,8 @@ class App extends React.Component {
           donationCaption,
           donations
         } = this.state
+
+        console.log('Donations =>', donations)
     return (
       <div className="App">
         <Banner />

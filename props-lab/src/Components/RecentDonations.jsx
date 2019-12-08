@@ -1,17 +1,17 @@
 import React from 'react'
-import DonationItem from './RecentDonations'
+import DonationItem from './DonationItem'
 
 const RecentDonations = (props) => {
-    debugger;
+   
     console.log('props', props)
-    console.log("donations", props.donations)
-     const donationsList = props.donations.map(donationObj => {
+    
+     const donationsList = props.donations.map(donation => {
         return(
             <DonationItem 
-                key={donationObj.name}
-                name={donationObj.name}
-                caption={donationObj.caption}
-                amount={donationObj.amount}
+                key={donation.name}
+                name={donation.name}
+                caption={donation.caption}
+                amount={donation.amount}
             />
         )
     })
