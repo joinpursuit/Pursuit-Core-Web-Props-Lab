@@ -4,3 +4,15 @@ Donation Form Css | Go Fund Me Lab
 */
 
 
+section#form {
+  border: solid 2px #111;
+  border-radius: 7px;
+  margin: 6px 12px 12px 6px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  
+}

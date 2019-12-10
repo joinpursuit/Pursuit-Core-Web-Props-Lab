@@ -20,7 +20,7 @@ class Progress extends Component {
       <section id="progress">
         <h4>Progress</h4>
         <strong>Raised $440 of <em>$1000</em></strong>
-        <div id="progressBar"></div>
+        <div id="progressBar" style={{"backgroundColor": "green", "width": "auto", "height": "20px"}}></div>
       </section>
     )
   }
