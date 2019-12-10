@@ -25,8 +25,12 @@ class App extends Component {
         { donor: "JR", amount: 400, msg: "wish I were the one going!!!" },
         { donor: "Wynter", amount: 50, msg: "Bon voyage!" },
         { donor: "Dessa", amount: 100, msg: "Bring me back something cool~" }
-      ]
+      ],
     }
+  }
+
+  calcRaised = (donationsArr) => {
+    return donationsArr.reduce((sum, curr) => sum += curr.amount, 0);
   }
 
   handleSubmit = (e) => {
@@ -40,7 +44,8 @@ class App extends Component {
   }
 
   render() {
-    const { target, donations } = this.state;
+    const { donations } = this.state;
+    const raised = this.calcRaised(donations);
     return (
       <div className="App">
         <div id="grid-base">
@@ -49,8 +54,8 @@ class App extends Component {
             donations={donations}
           />
           <Progress 
-            target={target} 
-            donations={donations}
+            target={this.target} 
+            raised={raised}
           />
           <DonationForm 
             handleSubmit={this.handleSubmit} 

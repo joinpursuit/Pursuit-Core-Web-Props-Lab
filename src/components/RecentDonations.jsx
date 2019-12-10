@@ -23,6 +23,7 @@ const RecentDonations = (props) => {
         />
       );
   });
+
   return (
     <section id="recent">
       <h2>Recent Donations</h2>

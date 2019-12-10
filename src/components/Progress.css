@@ -9,3 +9,10 @@ section#progress {
   border-radius: 7px;
   margin: 12px 12px 6px 6px;
 }
+
+div#progressBar {
+  height: 30px;
+
+  background-color: green;
+  color: white;
+}
