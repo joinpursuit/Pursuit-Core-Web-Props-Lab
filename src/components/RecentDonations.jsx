@@ -5,29 +5,32 @@ Recent Donations Component | Go Fund Me Lab
 
 
 /* IMPORTS */
-import React, { Component } from 'react';
+import React from 'react';
 import './RecentDonations.css';
 
 import DonationCard from './DonationCard';
 
 
 /* MAIN */
-class RecentDonations extends Component {
-  // constructor() {
-  //   super();
-  // }
-
-  render() {
-    return (
-      <section id="recent">
-        <h2>Recent Donations</h2>
-        <ul>
-          <DonationCard />
-          <DonationCard />
-        </ul>
-      </section>
-    )
-  }
+const RecentDonations = (props) => {
+  const donationItems = props.donations.map(donation => {
+      return (
+        <DonationCard 
+          key={donation.donor} 
+          donor={donation.donor}
+          amount={donation.amount}
+          msg={donation.msg}
+        />
+      );
+  });
+  return (
+    <section id="recent">
+      <h2>Recent Donations</h2>
+      <ul>
+        {donationItems}
+      </ul>
+    </section>
+  )
 }
 
 
