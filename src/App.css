@@ -1,6 +1,6 @@
 /*
 Joseph P. Pasaoa
-Go Fund Me Lab
+APP Css | Go Fund Me Lab
 */
 
 
@@ -71,13 +71,19 @@ table {
 
 
 /* MAIN STYLE */
-html, body, .App, div#flex-base {
+html, body, div#root, .App, div#grid-base {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
-.App {
+/* .App {
   text-align: center;
+} */
+
+div#grid-base {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1fr 3fr 1fr;
 }
