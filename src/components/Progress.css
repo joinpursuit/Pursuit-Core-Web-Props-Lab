@@ -1,0 +1,11 @@
+/*
+Joseph P. Pasaoa
+Progress Css | Go Fund Me Lab
+*/
+
+
+section#progress {
+  border: solid 2px #111;
+  border-radius: 7px;
+  margin: 12px 12px 12px 6px;
+}
