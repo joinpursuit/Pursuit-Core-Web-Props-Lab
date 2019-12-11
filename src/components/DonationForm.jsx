@@ -14,6 +14,7 @@ const DonationForm = (props) => {
   return (
     <section id="form">
       <h2>Make a Donation</h2>
+      <p id="errorMsg">{props.errorMsg}</p>
       <form id="formDonate" onSubmit={props.handleSubmit}>
         <label htmlFor="nameValue">Name</label>
         <input 
@@ -23,6 +24,7 @@ const DonationForm = (props) => {
           onChange={props.handleChange} 
           value={props.nameValue} 
           placeholder="Jane Doe" 
+          required 
         />
         <label htmlFor="msgValue">Message</label>
         <input 
@@ -32,6 +34,7 @@ const DonationForm = (props) => {
           onChange={props.handleChange} 
           value={props.msgValue} 
           placeholder="What would you like to tell Alejo?" 
+          required 
         />
         <label htmlFor="amountValue">Amount to donate: {props.amountValue}</label>
         <input 
