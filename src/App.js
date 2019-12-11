@@ -95,6 +95,7 @@ class App extends Component {
             msgValue={msgValue}
             errorMsgOpacity={errorMsgOpacity} 
           />
+          <footer>Copyright ©2019 Joseph P. Pasaoa. All rights reserved.</footer>
         </div>
       </div>
     );

@@ -115,3 +115,12 @@ h2 {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: bold;
 }
+
+footer {
+  grid-column: 2;
+  margin-right: 2vw;
+
+  text-align: right;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 0.8em;
+}
