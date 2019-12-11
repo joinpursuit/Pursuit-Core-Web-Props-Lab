@@ -1,6 +1,6 @@
 # Pursuit-Core-Web-Props-Lab
 
-## Completed MVP Screen Capture
+### Completed MVP Screen Capture
 
 ![My completed goFundMe](./readme/screencap.png)
 
