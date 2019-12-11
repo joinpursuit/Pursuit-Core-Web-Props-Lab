@@ -1,8 +1,16 @@
 # Pursuit-Core-Web-Props-Lab
 
-![goFundMe](./readme/goFundMe.png)
+## Completed MVP Screen Capture
+
+![My completed goFundMe](./readme/screencap.png)
+
+---
+
+## Directions
 
 Build a React app modeled after the image above.  Included in this repo is an [html file](https://github.com/joinpursuit/Pursuit-Core-Web-Props-Lab/blob/master/index.html) that renders a static version in HTML.  Your React app should have the following components:
+
+![goFundMe](./readme/goFundMe.png)
 
 ## Top Bar
 
