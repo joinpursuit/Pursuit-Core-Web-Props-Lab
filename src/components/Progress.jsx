@@ -15,7 +15,14 @@ const Progress = (props) => {
     <section id="progress">
       <h4>Progress</h4>
       <strong>Raised ${props.raised} of <em>${props.target}</em></strong>
-      <div id="progressBar" style={{"width": `${props.percentToTarget}%`}}>{props.percentToTarget}%</div>
+      <div 
+        id="progressBar" 
+        style={{
+          "width": `${props.percentToTarget >= 100 ? 100 : props.percentToTarget}%`
+        }}
+      >
+        {props.percentToTarget}%
+      </div>
     </section>
   )
 }
