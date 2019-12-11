@@ -13,7 +13,7 @@ import './TopBar.css';
 const TopBar = (props) => {
   return (
     <header>
-      <h1>Go Fund Me</h1>
+      <h1>Go Fund <span>Me</span></h1>
       <p>Help <strong>Alejo</strong> go on vacation to an exotic beach somewhere</p>
     </header>
   )

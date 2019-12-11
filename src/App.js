@@ -29,7 +29,7 @@ class App extends Component {
       nameValue: "",
       amountValue: 0,
       msgValue: "",
-      errorMsg: "..."
+      errorMsgOpacity: { opacity: 0 }
     }
   }
 
@@ -45,7 +45,7 @@ class App extends Component {
     e.preventDefault();
     if (!this.state.amountValue) {
       this.setState({
-          errorMsg: "Please choose a donation amount"
+          errorMsgOpacity: { opacity: 1 }
       });
     } else {
       const newDonation = {
@@ -60,7 +60,7 @@ class App extends Component {
           nameValue: "",
           amountValue: 0,
           msgValue: "",
-          errorMsg: "..."
+          errorMsgOpacity: { opacity: 0 }
       });
     }
   }
@@ -72,7 +72,7 @@ class App extends Component {
   }
 
   render() {
-    const { donations, nameValue, amountValue, msgValue, errorMsg } = this.state;
+    const { donations, nameValue, amountValue, msgValue, errorMsgOpacity } = this.state;
     const raised = this.calcRaised(donations);
     const percentToTarget = (raised / this.target * 100).toFixed(2);
     return (
@@ -93,7 +93,7 @@ class App extends Component {
             nameValue={nameValue}
             amountValue={amountValue}
             msgValue={msgValue}
-            errorMsg={errorMsg} 
+            errorMsgOpacity={errorMsgOpacity} 
           />
         </div>
       </div>

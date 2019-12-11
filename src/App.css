@@ -54,20 +54,25 @@ table {
 }
 
 
-/* FONT INITS
+/* FONT INITS */
 @font-face {
-  font-family: 'Sulphur Point';
-  src: url('./assets/fonts/Sulphur_Point/SulphurPoint-Regular.ttf') format('truetype');
+  font-family: 'Josefin Sans';
+  src: url('./assets/fonts/Josefin_Sans/JosefinSans-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Ubuntu Mono';
-  src: url('./assets/fonts/Ubuntu_Mono/UbuntuMono-Regular.ttf') format('truetype');
+  font-family: 'Kaushan Script';
+  src: url('./assets/fonts/Kaushan_Script/KaushanScript-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
-*/
+@font-face {
+  font-family: 'Quicksand';
+  src: url('./assets/fonts/Quicksand/Quicksand-VariableFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 
 /* MAIN STYLE */
@@ -76,6 +81,12 @@ html, body, div#root, .App, div#grid-base {
   width: 100%;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: rgb(164,155,139);
+  background: linear-gradient(0deg, rgba(164,155,139,0.5172443977591037) 35%, rgba(218,214,206,0.24833683473389356) 100%);
 }
 
 /* .App {
@@ -89,5 +100,18 @@ div#grid-base {
 }
 
 strong {
+  font-weight: bold;
+}
+
+section {
+  padding: 6px 12px;
+  background-color: #fff;
+  box-shadow: 0px 4px 7px #aaa
+}
+
+h2 {
+  margin-bottom: 9px;
+  
+  font-family: 'Josefin Sans', sans-serif;
   font-weight: bold;
 }

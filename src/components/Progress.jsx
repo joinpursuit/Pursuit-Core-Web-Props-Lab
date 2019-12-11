@@ -13,8 +13,8 @@ import './Progress.css';
 const Progress = (props) => {
   return (
     <section id="progress">
-      <h4>Progress</h4>
-      <strong>Raised ${props.raised} of <em>${props.target}</em></strong>
+      <h2>Progress</h2>
+      <strong>Raised <span>${props.raised}</span> of <em>${props.target}</em></strong>
       <div 
         id="progressBar" 
         style={{
