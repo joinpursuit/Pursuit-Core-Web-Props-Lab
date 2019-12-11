@@ -21,11 +21,14 @@ class App extends Component {
     this.target = 1000;
     this.state = {
       donations: [
-        { donor: "Joey", amount: 211, msg: "Good luck, Alejo! May your trip be all you imagined and more!" },
-        { donor: "JR", amount: 400, msg: "wish I were the one going!!!" },
-        { donor: "Wynter", amount: 50, msg: "Bon voyage!" },
-        { donor: "Dessa", amount: 100, msg: "Bring me back something cool~" }
+        { name: "Joey", amount: 211, msg: "Good luck, Alejo! May your trip be all you imagined and more!" },
+        { name: "JR", amount: 400, msg: "wish I were the one going!!!" },
+        { name: "Wynter", amount: 50, msg: "Bon voyage!" },
+        { name: "Dessa", amount: 100, msg: "Bring me back something cool~" }
       ],
+      nameValue: "",
+      amountValue: 50,
+      msgValue: ""
     }
   }
 
@@ -35,17 +38,28 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    const newDonation = {
+      name: this.state.nameValue,
+      amount: this.state.amountValue,
+      msg: this.state.msgValue
+    }
+    const updatedDonations = this.state.donations.concat(newDonation);
+    console.log(this.calcRaised(updatedDonations));
+    this.setState({
+        donations: updatedDonations
+    });
   }
 
   handleChange = (e) => {
     this.setState({
-        [e.target.name]: e.target.value
+        [e.target.name]: e.target.name === 'amountValue' ? Number(e.target.value) : e.target.value
     });
   }
 
   render() {
-    const { donations } = this.state;
+    const { donations, nameValue, amountValue, msgValue } = this.state;
     const raised = this.calcRaised(donations);
+    const percentToTarget = (raised / this.target * 100).toFixed(2);
     return (
       <div className="App">
         <div id="grid-base">
@@ -56,10 +70,14 @@ class App extends Component {
           <Progress 
             target={this.target} 
             raised={raised}
+            percentToTarget={percentToTarget}
           />
           <DonationForm 
             handleSubmit={this.handleSubmit} 
             handleChange={this.handleChange} 
+            nameValue={nameValue}
+            amountValue={amountValue}
+            msgValue={msgValue}
           />
         </div>
       </div>

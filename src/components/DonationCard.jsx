@@ -13,7 +13,7 @@ import React from 'react';
 const DonationCard = (props) => {
   return (
     <li className="donation">
-      <h3>{props.donor} donated ${props.amount}</h3>
+      <h3>{props.name} donated ${props.amount}</h3>
       <p>{props.msg}</p>
     </li>
   )

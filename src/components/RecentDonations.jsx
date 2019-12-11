@@ -13,11 +13,11 @@ import DonationCard from './DonationCard';
 
 /* MAIN */
 const RecentDonations = (props) => {
-  const donationItems = props.donations.map(donation => {
+  const donationItems = props.donations.map((donation, index) => {
       return (
         <DonationCard 
-          key={donation.donor} 
-          donor={donation.donor}
+          key={index} 
+          name={donation.name}
           amount={donation.amount}
           msg={donation.msg}
         />
