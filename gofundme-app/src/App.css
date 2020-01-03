@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.topBar {
+  background-color: lightgrey;
+  width: 90vw;
+  margin-left: 5%;
+  height: 25vh;
+  padding-top: 10px;
+  margin-bottom:10px;
+}
+
+.recent-donations {
+  background-color: lightgrey;
+  width: 30vw;
+  margin-left: 7%;
+  margin-right: 10px;
+
+}
+
+.donation-form {
+  width: 50vw;
+  text-align: left;
+}
+
+.donation-form span, .donation-form button{
+  float: right;
+}
+
+input {
+  margin-bottom: 10px;
+  width: 600px;
+}
