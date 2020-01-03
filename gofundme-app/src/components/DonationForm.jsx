@@ -2,14 +2,7 @@ import React from 'react';
 
 
 class DonationForm extends React.Component {
-    constructor(){
-        super();
-        this.state ={
-            name: ' ',
-            caption: '',
-            amount:0
-        }
-    }
+  
 
     handleFormSubmit = (event) => {
         event.preventDefault();
@@ -33,43 +26,47 @@ class DonationForm extends React.Component {
 
     handleAmount = (event) => {
         this.setState({
-            amount: event.target.value
+            donationAmount: event.target.value
         })
     }
     render(){
-        const { name, caption, amount } = this.state
+        // const { name, caption, donationAmount } = this.state
         return(
             <div className = 'donation-form'>
                 <form onSubmit = {this.handleFormSubmit}>
-                    <label htmlFor = 'name'>Name: </label>
+                    <label htmlFor = 'name'>Name </label>
+                    <br></br>
                     <input
-                    id='name'
-                    name='name'
-                    type ='text'
-                    onChange ={this.handleName}
-                    value = {name}
+                        id='name'
+                        name='name'
+                        type ='text'
+                        onChange ={this.props.handleDonorName}
+                        value = {this.props.DonorName}
                     />
-
-                    <label htmlFor = 'caption'>Caption: </label>
+                    <br></br>
+                    <label htmlFor = 'caption'>Caption </label>
+                    <br></br>
                     <input
-                    id='caption'
-                    name='caption'
-                    type ='text'
-                    onChange ={this.handleCaption}
-                    value = {caption}
+                        id='caption'
+                        name='caption'
+                        type ='text'
+                        onChange ={this.props.handleCaption}
+                        value = {this.props.caption}
                     />
-
-                    <label htmlFor = 'amount'>Amount: </label>
+                    <br></br>
+                    <label htmlFor = 'amount'>Amount to be donated </label>
+                    <br></br>
                     <input
-                    id='amount'
-                    name='amount'
-                    type ='range'
-                    min ='0'
-                    max = '1000'
-                    onChange ={this.handleAmount}
-                    value = {amount}
+                        id='amount'
+                        name='amount'
+                        type ='range'
+                        min ='0'
+                        max = '1000'
+                        onChange ={this.props.handleDonationRange}
+                        value = {this.props.donationAmount}
                     />
-                    <span><h2>{amount}</h2></span>
+                    <br></br>
+                    <span><h2>${this.props.donationAmount}</h2></span>
                     <button>Donate!</button>
                 </form>
             </div>
