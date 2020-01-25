@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useState } from 'react';
 import './App.css';
 
 import Header from './Components/Header';
@@ -7,98 +7,91 @@ import ProgressBar from './Components/ProgressBar';
 import Form from './Components/Form'
 
 
-class App extends React.Component {
-  state = {
-    objective: 1000,
-    fund: 170,
-    donationCount: 3,
-    donations: [
-      {
-        name: 'John',
-        caption: 'Here take a break from work',
-        amount: 30
-      },
-      {
-        name: 'Emily',
-        caption: '',
-        amount: 110
-      },
-      {
-        name: 'Sam',
-        caption: 'Go to miami',
-        amount: 30
-      }
-    ],
-    formDonor: '',
-    formCaption: '',
-    formAmount: 5
-  }
+const App = () => {
+  const [ objective, setObjective ] = useState(1000);
+  const [ fund, setFund ] = useState(170)
+  const [ donations, setDonations ] = useState([
+    {
+      name: 'John',
+      caption: 'Here take a break from work',
+      amount: 30
+    },
+    {
+      name: 'Emily',
+      caption: '',
+      amount: 110
+    },
+    {
+      name: 'Sam',
+      caption: 'Go to miami',
+      amount: 30
+    }
+  ])
+  const [ formDonor, setFormDonor ] = useState('')
+  const [ formCaption, setFormCaption ] = useState('')
+  const [ formAmount, setFormAmount ] = useState(5)
+  
 
-  handleSubmitForm = () => {
-    if (this.state.formDonor) {
-      const allDonations = [...this.state.donations];
+  const handleSubmitForm = () => {
+    if (formDonor) {
       const newDonation = {
-        name: this.state.formDonor,
-        caption: this.state.formCaption,
-        amount: this.state.formAmount
+        name: formDonor,
+        caption: formCaption,
+        amount: formAmount
       }
 
-      allDonations.push(newDonation);
+      donations.push(newDonation);
 
-      const total = this.state.fund + parseInt(this.state.formAmount);
+      const total = fund + parseInt(formAmount);
 
-      this.setState({
-        donations: allDonations,
-        fund: total,
-        formDonor: '',
-        formCaption: '',
-        formAmount: 5
-      })
+      setDonations(donations)
+      setFund(total)
+      setFormDonor('')
+      setFormCaption('')
+      setFormAmount(5)
     }
   }
 
-  handleInputChange = (id, value) => {
+  const handleInputChange = (id, value) => {
     if (id === 'nameInput') {
-      this.setState({ formDonor: value })
+      setFormDonor(value)
     } else if (id === 'captionInput') {
-      this.setState({ formCaption: value })
+      setFormCaption(value)
     } else if (id === 'amountInput') {
-      this.setState({ formAmount: value })
+      setFormAmount(value)
     }
   }
 
-  // ######################### RENDER #############################
-  render() {
-    return (
-      <div className="App">
-        <Header />
 
-        <div className='container'>
-          <div className='row'>
-            <DonationFeed donations={this.state.donations} />
+  return (
+    <div className="App">
+      <Header />
 
-            <div className='col-8'>
-              <h2 className='mb-4'>Raised ${this.state.fund} of <span className='text-muted'>${this.state.objective}</span></h2>
-              <ProgressBar value={this.state.fund} target={this.state.objective} />
-              <hr />
+      <div className='container'>
+        <div className='row'>
+          <DonationFeed donations={donations} />
 
-              <Form submitForm={this.handleSubmitForm}
-                name={this.state.formDonor}
-                caption={this.state.formCaption}
-                amount={this.state.formAmount}
-                handleInput={this.handleInputChange}
-              />
-            </div>
+          <div className='col-8'>
+            <h2 className='mb-4'>Raised ${fund} of <span className='text-muted'>${objective}</span></h2>
+            <ProgressBar value={fund} target={objective} />
+            <hr />
 
+            <Form submitForm={handleSubmitForm}
+              name={formDonor}
+              caption={formCaption}
+              amount={formAmount}
+              handleInput={handleInputChange}
+            />
           </div>
-
 
         </div>
 
 
       </div>
-    );
-  }
+
+
+    </div>
+  );
 }
 
 export default App;
