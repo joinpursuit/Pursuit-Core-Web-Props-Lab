@@ -1,0 +1,46 @@
+
+.entireApp {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.upperHalf{
+  height: 21vh;
+  margin-bottom: 4vh;
+}
+
+.lowerHalf {
+  display: flex;
+  flex-direction: row;
+  height: 75vh;
+}
+
+.largerChild {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  flex: 2;
+}
+
+.smallerChild{
+  height: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+h1, h3 {
+  text-align: center;
+}
+
+input{
+  height: 25px;
+}
+
+button {
+  width: 20%;
+  height: 50px;
+  margin-right: 10px;
+  align-self: flex-end;
+}
