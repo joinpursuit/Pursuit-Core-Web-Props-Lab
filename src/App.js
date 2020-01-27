@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Donations from './Components/Donations';
 import Progress from './Components/Progress';
 import Form from './Components/Form';
