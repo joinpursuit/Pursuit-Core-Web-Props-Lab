@@ -5,13 +5,14 @@ import Donation from './Donation';
 
 class Donations extends React.Component{
     state = {
-        donations: [
-            {name: "Jon", amount: 50, caption: 'this all give to this great cause'},
-            {name: "Penny", amount: 1, caption: 'this is all I have'}
-        ],
-        formSubmitted: false
+        formAmount: 0,
+        percentage: 0,
+        raised: 0,
+        donations: [],
+        // formSubmitted: false
     }
     
+
     printDonations = () => {
         return this.state.donations.map(don => {
             return (
@@ -28,17 +29,40 @@ class Donations extends React.Component{
 
     handleSubmit = (e) => {
         e.preventDefault();
-        
+        let don = {
+            name: e.target.elements[0].value,
+            caption: e.target.elements[1].value,
+            amount: e.target.elements[2].value
+        }
+        this.setState(prevState=> {
+            return {
+                donations: [...prevState.donations, don]
+            }
+
+        })
+        e.target.reset()
+    }
+
+    handleSlider = (e) => {
+        e.preventDefault();
+        this.setState({
+            formAmount: e.target.value
+        })
     }
 
     render() {
+        let {formAmount} = this.state
         return(
             <div>
             <TopBar />
-            <Form />
             <div>
                 {this.printDonations()}
             </div>
+            <Form 
+                handleSubmit={this.handleSubmit}
+                formAmount={formAmount}
+                handleSlider = {this.handleSlider}
+            />
             </div>
         )
     }
