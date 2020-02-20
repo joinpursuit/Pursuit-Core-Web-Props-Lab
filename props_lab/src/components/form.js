@@ -10,9 +10,13 @@ class Form extends Component {
         this.setState({ 
             [e.target.name]: e.target.value
             
-            
-            
-        })
+             })
+            }
+    handleClick = (e) => {
+        e.preventDefault()
+        console.log("hell")
+
+    }
     render(){
         console.log(this.state)
     return(
@@ -28,7 +32,7 @@ class Form extends Component {
         Amount to Donate: <input  name="amount" type="range" className="donationAmount" mins="5" max="1000" onChange={this.handleChange}/>
         <blockquote className="blockquote">
             <p name="amount" value={this.state.amount} className="displayAmount" >{ this.state.amount}</p>
-            <button className="button">Donate</button>
+            <button type="submit" className="button" onClick={this.handleClick}>Donate</button>
             {this.testFunc}
         </blockquote>
        
