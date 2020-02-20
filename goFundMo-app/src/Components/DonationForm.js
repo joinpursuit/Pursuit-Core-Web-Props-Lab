@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 
+
 class DonationForm extends Component {
   state = {
     name: "",
     caption: "",
-    amount: 0
+    amount: 0,
+    donations: []
   }
   handelChange = (e) => {
     this.setState({
@@ -12,17 +14,13 @@ class DonationForm extends Component {
     })
   }
 
-  handelSubmit = (e) => {
-    e.preventDefault();
-    let {name, caption, amount} = this.state;
-    console.log({name, caption, amount})
-
-  } 
-
   render() {
     let { name, caption, amount} = this.state;
     return (
-      <form onSubmit={this.handelSubmit}>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        this.props.handelSubmit({name, caption, amount})
+      }}>
         <label>
           Name:
           <input type="text" value={name} name="name" onChange={this.handelChange}/>

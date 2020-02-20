@@ -7,7 +7,7 @@ class Progress extends Component {
   render() {
     return (
       <div>
-        <h1> Raised $ {this.state.progress} of <span className="total"> $5,000.00 </span> </h1>
+        <h1> Raised ${this.state.progress} of <span className="total"> $5,000.00 </span> </h1>
       </div>
     )
   }
