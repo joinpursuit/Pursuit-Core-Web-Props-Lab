@@ -9,7 +9,6 @@ class Donations extends React.Component{
         percentage: 0,
         raised: 0,
         donations: [],
-        // formSubmitted: false
     }
     
 
@@ -56,6 +55,7 @@ class Donations extends React.Component{
             <div>
             <TopBar />
             <div>
+            <h3>Recent Donations</h3>
                 {this.printDonations()}
             </div>
             <Form 
