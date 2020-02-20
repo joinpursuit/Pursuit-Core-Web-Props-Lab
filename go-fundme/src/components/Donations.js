@@ -2,13 +2,15 @@ import React from 'react';
 import TopBar from './TopBar';
 import Form from './Form'
 import Donation from './Donation';
+import MoneyRaised from './MoneyRaised';
 
 class Donations extends React.Component{
     state = {
         formAmount: 0,
-        percentage: 0,
-        raised: 0,
+        raisedAmount: 0,
         donations: [],
+        goal: 5000,
+        percentage: 0
     }
     
 
@@ -28,6 +30,13 @@ class Donations extends React.Component{
 
     handleSubmit = (e) => {
         e.preventDefault();
+        let submittedAmount = e.target.elements[2].value
+        this.setState(prevState => {
+            return {
+                raisedAmount: prevState.raisedAmount += Number(submittedAmount)
+            }
+        })
+        
         let don = {
             name: e.target.elements[0].value,
             caption: e.target.elements[1].value,
@@ -49,12 +58,19 @@ class Donations extends React.Component{
         })
     }
 
+
     render() {
-        let {formAmount} = this.state
+        let {formAmount,goal, raisedAmount, percentage} = this.state
+        console.log(raisedAmount)
         return(
             <div>
             <TopBar />
             <div>
+            <MoneyRaised
+                goal={goal}
+                raisedAmount={raisedAmount}
+                percentage={percentage}
+            />
             <h3>Recent Donations</h3>
                 {this.printDonations()}
             </div>
