@@ -5,7 +5,8 @@ class DonationForm extends Component {
   state = {
     name: "",
     caption: "",
-    amount_to_donate: 0
+    amount_to_donate: 0,
+    donors: []
   };
 
   handleChange = e => {
@@ -14,9 +15,23 @@ class DonationForm extends Component {
     });
   };
 
-  handleSubmit = () => {};
+  handleSubmit = e => {
+    e.preventDefault();
+    let { name, caption, amount_to_donate } = this.state;
+    let donor = {
+      name: name,
+      caption: caption,
+      amount_to_donate: amount_to_donate
+    };
+    this.setState(prevState => {
+      return {
+        donors: [...prevState.donors, donor]
+      };
+    });
+  };
 
   render() {
+    console.log(this.state);
     let { name, caption, amount_to_donate } = this.state;
     return (
       <form className={"donationForm"} onSubmit={this.handleSubmit}>
