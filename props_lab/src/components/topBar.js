@@ -5,7 +5,7 @@ const TopBar = () => {
         <>
             <div>
                 <h1>goFund Mo</h1>
-                <h3>Help me go on vacation to a beach somewhere</h3>
+                <p>Help me go on vacation to a beach somewhere</p>
             </div>
         </>
     )
