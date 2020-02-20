@@ -1,14 +1,12 @@
 import React from 'react';
 // import logo from './logo.svg';
 // import './App.css';
-import TopBar from './components/TopBar';
-import RecentDonations from './components/RecentDonations';
+import Donations from './components/Donations';
 
 const App = () => {
   return (
     <div className="App">
-      <TopBar />
-      <RecentDonations />
+      <Donations />
     </div>
   );
 }

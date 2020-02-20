@@ -1,12 +1,15 @@
 import React from 'react';
+import TopBar from './TopBar';
+import Form from './Form'
 import Donation from './Donation';
 
-class RecentDonations extends React.Component{
+class Donations extends React.Component{
     state = {
         donations: [
             {name: "Jon", amount: 50, caption: 'this all give to this great cause'},
             {name: "Penny", amount: 1, caption: 'this is all I have'}
-        ]
+        ],
+        formSubmitted: false
     }
     
     printDonations = () => {
@@ -16,19 +19,29 @@ class RecentDonations extends React.Component{
                     name = {don.name}
                     amount = {don.amount}
                     caption = {don.caption}
+                    key = {don.caption}
                 />
                 
             )
         })
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+        
+    }
+
     render() {
         return(
             <div>
+            <TopBar />
+            <Form />
+            <div>
                 {this.printDonations()}
+            </div>
             </div>
         )
     }
 }
 
-export default RecentDonations;
+export default Donations;
