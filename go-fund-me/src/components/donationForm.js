@@ -1,5 +1,6 @@
 import React from "react"
 // import ProgressBar from "./progressBar.js"
+import DonationDisplay from "./donationDisplay.js"
 
 class Form extends React.Component{
 state = {
@@ -10,14 +11,14 @@ state = {
     total:1000,
     donations:[
         {name:"Corey",
-        ammount:100,
+        ammount:"100",
         caption:"Take lots of pics"},
         {name:"Jon",
-        ammount:5,
+        ammount:"5",
         caption:"Stay hydrated"
         },
         {name:"Jhenya",
-        ammount:150,
+        ammount:"150",
         caption:"Have fun"}]
 }
 
@@ -33,7 +34,7 @@ render(){
     let donars = this.state.donations.map((donation, i) => {
         return <DonationDisplay key={donation.name} 
                                 name={donation.name}
-                                amount={donation.amount}                
+                                ammount={donation.ammount}                
                                 caption={donation.caption}
                  />
       })
@@ -41,7 +42,7 @@ render(){
 
     <div>
     <form onSubmit={ this.handleForm }>
-        <h2>Raised $ {this.state.amout} of {this.state.total}</h2>
+        <h2>Raised $ {this.state.ammount} of {this.state.total}</h2>
         <br/>
         name
         <br/>
@@ -78,8 +79,9 @@ render(){
         </button>
         <br/>
         <h3>Recent Donations</h3>
-        <p donars/>
-
+        <div>
+        {donars}
+        </div>
 
 
 		  
