@@ -10,8 +10,11 @@ state={
         {prevDonation:[],
             name:"Sue",
             amount:40,
-            caption:""}
+            caption:"Keep "}
     ]
+}
+handleDonations=(props)=>{
+    
 }
 render(){
    console.log(this.state.donations)
