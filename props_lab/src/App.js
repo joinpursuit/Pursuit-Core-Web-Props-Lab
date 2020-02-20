@@ -4,6 +4,7 @@ import React from 'react';
 // import Form from './components/donationForm'
 import TopBar from './components/topBar';
 import RecentDonations from './components/recentDonations';
+import DonationForm from './components/donationForm'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       {/* <Form /> */}
       <TopBar />
       <RecentDonations />
+      <DonationForm />
     </div>
   );
 }
