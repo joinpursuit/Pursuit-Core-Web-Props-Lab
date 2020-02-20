@@ -1,13 +1,15 @@
 import React from 'react';
+import DisplayDonor from './RecentDonors';
 
 class Donations extends React.Component{
     state = {
-        name: '',
-        captions: '',
-        recentDonations: [],
-        value: 0,
-        raised: 0,
+        recentDonations: [{
+            name: 'Henry',
+            captions: '',
+            value: 0,
+        }],
         goal: 1000,
+        raised: 0,
         remaining : 0
     }
     handleValue =(e)=>{
@@ -26,25 +28,37 @@ class Donations extends React.Component{
         })
     }
 
-    handleButton = (e)=>{
+
+    handleSubmit = (e)=>{
         e.preventDefault();
-        this.setState({
-            recentDonations: [{
+        this.setState((prevState)=>({
+            recentDonations: [...prevState.recentDonations,{
                 name: this.state.name,
                 captions: this.state.captions,
-                amount: this.state.value
+                value: this.state.value
             }]
+        })
+        )
+    }
+
+    displayDonors = () =>{
+        return this.state.recentDonations.map((donor, i)=>{
+            return(
+                <DisplayDonor key={i}
+                name={donor.name}
+                caption={donor.captions}
+                value={donor.value}/>
+            )
         })
     }
 
-
-
     render(){
         console.log(this.state.recentDonations)
-        const {value, raised, goal} = this.state
+        const {value, goal} = this.state
         return(
-            <form onSubmit={this.handleButton}>
-                <h2>Raised ${raised} of ${goal}</h2>
+            <>
+            <form onSubmit={this.handleSubmit}>
+                <h2>Raised ${value} of ${goal}</h2>
 
                 <label>
                 Name:
@@ -60,6 +74,11 @@ class Donations extends React.Component{
 
                     <input type='submit' ></input>
             </form>
+                    <div>
+                        donations
+                 {this.displayDonors()}
+                    </div>
+            </>
         )
     }
 }
