@@ -2,15 +2,13 @@ import React from "react";
 // import logo from "./logo.svg";
 import "./App.css";
 import TopBar from "./components/TopBar";
-import DisplayRecentDonations from "./components/RecentDonations";
-import DonationForm from "./components/DonationForm";
+import DonationsAndForm from "./components/DonationsAndForm";
 
 function App() {
   return (
     <div className="App">
       <TopBar />
-      <DisplayRecentDonations />
-      <DonationForm />
+      <DonationsAndForm />
     </div>
   );
 }
