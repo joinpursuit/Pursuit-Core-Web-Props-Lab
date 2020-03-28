@@ -7,7 +7,6 @@ const Donation =()=>{
             <div>
             <TopBar/>
             <Form/>
-
             </div>
         )
     }
